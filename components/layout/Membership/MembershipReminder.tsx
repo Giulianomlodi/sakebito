@@ -17,7 +17,7 @@ const MembershipReminder = () => {
                                 <h3 className="text-xl font-semibold mb-4">Reminder: Only to the EU countries!</h3>
                                 <div className="space-y-4 text-sm">
                                     <p>
-                                        Please note Sake can be shipped only to EU locations. You can still purchase our club membership from outside the EU region, however, the Sake distribution is only within EU countries.
+                                        Please note Sake bottles can be shipped only to EU locations. You can still purchase our club membership from outside the EU region, however, the Sake distribution is only within EU countries.
                                     </p>
                                     <p>
                                         If you reside outside the EU countries, you could still ship it to your friends or any other locations and pick it up later! Even though we plan to ship out the Sake at the end of the year, if you are not in the EU or cannot find any alternative location, we can keep your Sake with us to give it to you at a later date!
