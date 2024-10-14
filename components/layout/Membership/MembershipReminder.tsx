@@ -10,7 +10,7 @@ const MembershipReminder = () => {
                 {/* ... */}
 
                 <section className="my-20">
-                    <div className="bg-[#0f183b6d] p-20 rounded-[16px] shadow-[0_4px_30px_rgba(0,0,0,0.1)] flex flex-col items-center text-left backdrop-blur-[7.3px]">
+                    <div className="bg-[#0f183b6d] p-14 rounded-[16px] shadow-[0_4px_30px_rgba(0,0,0,0.1)] flex flex-col items-center text-left backdrop-blur-[7.3px]">
                         <div className="flex items-start">
                             <MessageCircle className="w-6 h-6 text-yellow-500 mr-4 flex-shrink-0 mt-1" />
                             <div>
