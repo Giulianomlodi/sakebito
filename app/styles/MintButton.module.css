@@ -73,6 +73,9 @@
   align-items: center;
   gap: 20px;
 }
+.batchItem span {
+  white-space: nowrap;
+}
 
 .batchItem span:first-child {
   font-weight: bold;
