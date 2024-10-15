@@ -16,15 +16,17 @@ interface MenuVoicesProps {
   onItemClick: () => void;
 }
 
-const MenuVoices: React.FC<MenuVoicesProps> = () => {
-
+const MenuVoices: React.FC<MenuVoicesProps> = ({ onItemClick }) => {
+  const handleClick = () => {
+    onItemClick();
+  };
 
   return (
     <nav className={styles.nav}>
       <NavigationMenu>
         <NavigationMenuList className={styles.menuList}>
           <NavigationMenuItem>
-            <Link href="/" scroll={true}>
+            <Link href="/" onClick={handleClick}>
               <NavigationMenuLink>Home</NavigationMenuLink>
             </Link>
           </NavigationMenuItem>
@@ -33,17 +35,17 @@ const MenuVoices: React.FC<MenuVoicesProps> = () => {
             <NavigationMenuContent>
               <ul className={styles.dropdownList}>
                 <li>
-                  <Link target="_blank" href="https://sakebito.mozello.shop/" >
+                  <Link target="_blank" href="https://sakebito.mozello.shop/" onClick={handleClick}>
                     <NavigationMenuLink>Tachibana</NavigationMenuLink>
                   </Link>
                 </li>
                 <li>
-                  <Link href="/partners/itano-shuzo" scroll={true}>
+                  <Link href="/partners/itano-shuzo" onClick={handleClick}>
                     <NavigationMenuLink>Itano-Shuzo</NavigationMenuLink>
                   </Link>
                 </li>
                 <li>
-                  <Link href="/partners/takanoi-shuzo" scroll={true} >
+                  <Link href="/partners/takanoi-shuzo" onClick={handleClick}>
                     <NavigationMenuLink>Takanoi-Shuzo</NavigationMenuLink>
                   </Link>
                 </li>
@@ -51,12 +53,12 @@ const MenuVoices: React.FC<MenuVoicesProps> = () => {
             </NavigationMenuContent>
           </NavigationMenuItem>
           <NavigationMenuItem>
-            <Link href="https://sakebito.com/#sakebito-shop" >
+            <Link href="https://sakebito.com/#sakebito-shop" onClick={handleClick}>
               <NavigationMenuLink>Shop</NavigationMenuLink>
             </Link>
           </NavigationMenuItem>
           <NavigationMenuItem>
-            <Link href="/membership" scroll={true} >
+            <Link href="/membership" onClick={handleClick}>
               <NavigationMenuLink>Membership</NavigationMenuLink>
             </Link>
           </NavigationMenuItem>
@@ -65,7 +67,7 @@ const MenuVoices: React.FC<MenuVoicesProps> = () => {
               href="https://twitter.com/wearesakebito"
               target="_blank"
               rel="noopener noreferrer"
-
+              onClick={onItemClick}
             >
               <FaXTwitter />
             </a>
@@ -73,7 +75,7 @@ const MenuVoices: React.FC<MenuVoicesProps> = () => {
               href="https://www.instagram.com/sakebito.japan"
               target="_blank"
               rel="noopener noreferrer"
-
+              onClick={onItemClick}
             >
               <FaInstagram />
             </a>
@@ -81,7 +83,7 @@ const MenuVoices: React.FC<MenuVoicesProps> = () => {
               href="https://t.me/+hDMg4hVPy6VlNDQ0"
               target="_blank"
               rel="noopener noreferrer"
-
+              onClick={onItemClick}
             >
               <FaTelegram />
             </a>
@@ -89,7 +91,7 @@ const MenuVoices: React.FC<MenuVoicesProps> = () => {
               href="https://warpcast.com/sakebito"
               target="_blank"
               rel="noopener noreferrer"
-
+              onClick={onItemClick}
             >
               <SiFarcaster />
             </a>
