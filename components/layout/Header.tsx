@@ -14,7 +14,7 @@ function Header() {
       <div className={styles.stickyHeader}>
         <div className={styles.leftArea}>
           <span className={styles.LogoClass}>
-            <Link href="/">
+            <Link scroll={true} href="/">
               <Image
                 src="/Logo.png"
                 alt="SAKEbito Logo"

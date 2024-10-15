@@ -1,46 +1,26 @@
 'use client'
 
-import React, { useEffect, useState } from 'react';
-import { useReadContract } from 'wagmi';
-import { abi } from '@/contract-abi';
+import React, { useState } from 'react';
 import { XIcon } from 'lucide-react';
 
-const CONTRACT_ADDRESS = process.env.NEXT_PUBLIC_CONTRACT_ADDRESS as `0x${string}`;
 const MOONPAY_API_KEY = process.env.NEXT_PUBLIC_MOONPAY_API_KEY;
 
 const MoonPayNFTLiteModal = () => {
     const [isOpen, setIsOpen] = useState(false);
-    const [nextTokenId, setNextTokenId] = useState<string | null>(null);
     const [moonpayWidgetUrl, setMoonpayWidgetUrl] = useState<string | null>(null);
     const [error, setError] = useState<string | null>(null);
 
-    const { data: batchData } = useReadContract({
-        abi,
-        address: CONTRACT_ADDRESS,
-        functionName: 'batches',
-        args: [BigInt(1)], // Reading batch with ID 1
-    });
-
-    useEffect(() => {
-        if (batchData && Array.isArray(batchData) && batchData.length >= 8) {
-            const minted = batchData[7] as bigint;
-            setNextTokenId((minted + BigInt(1)).toString());
+    const openModal = async () => {
+        try {
+            const widgetUrl = `https://buy.moonpay.com/?apiKey=${MOONPAY_API_KEY}&currencyCode=eth_sakebito&walletAddress=`;
+            setMoonpayWidgetUrl(widgetUrl);
+            setIsOpen(true);
+        } catch (error) {
+            console.error('Error setting up MoonPay widget:', error);
+            setError('Failed to set up MoonPay widget. Please try again later.');
         }
-    }, [batchData]);
+    };
 
-    useEffect(() => {
-        if (nextTokenId && MOONPAY_API_KEY) {
-            try {
-                const widgetUrl = `https://buy.moonpay.com/?apiKey=${MOONPAY_API_KEY}&currencyCode=eth&walletAddress=${CONTRACT_ADDRESS}&externalTransactionId=${nextTokenId}`;
-                setMoonpayWidgetUrl(widgetUrl);
-            } catch (error) {
-                console.error('Error setting up MoonPay widget:', error);
-                setError('Failed to set up MoonPay widget. Please try again later.');
-            }
-        }
-    }, [nextTokenId]);
-
-    const openModal = () => setIsOpen(true);
     const closeModal = () => setIsOpen(false);
 
     return (
