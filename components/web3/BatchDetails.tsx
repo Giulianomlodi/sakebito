@@ -70,12 +70,12 @@ const BatchDetails: React.FC<BatchDetailsProps> = ({ contractAddress }) => {
                     <span>{batchDetails.active ? 'Yes' : 'No'}</span>
                 </div>
                 <div className={styles.batchItem}>
-                    <span>Limit:</span>
-                    <span>{remainingMints.toString()}/{batchDetails.limit.toString()}</span>
+                    {/* <span>Limit:</span>
+                    <span>{remainingMints.toString()}/{batchDetails.limit.toString()}</span> */}
                 </div>
                 <div className={styles.batchItem}>
-                    <span>Minted:</span>
-                    <span>{batchDetails.minted.toString()}</span>
+                    {/* <span>Minted:</span>
+                    <span>{batchDetails.minted.toString()}</span> */}
                 </div>
             </div>
         </div>
