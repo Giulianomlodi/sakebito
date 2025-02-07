@@ -51,7 +51,7 @@ const BatchDetails: React.FC<BatchDetailsProps> = ({ contractAddress }) => {
         return <div>Loading batch details...</div>;
     }
 
-    const remainingMints = batchDetails.limit - batchDetails.minted;
+    // const remainingMints = batchDetails.limit - batchDetails.minted;
 
     return (
         <div className={styles.batchDetails}>
